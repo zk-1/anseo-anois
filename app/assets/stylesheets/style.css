@@ -1,0 +1,16 @@
+input[type=text], textarea {
+    width: 100%;
+}
+
+#nav-bar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+form {
+    display: inline;
+}
