@@ -23,6 +23,41 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class = "navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="<%= url_for "/" %>">Anseo Anois</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <%
+                {"Home": "/"}.map do |name, path|
+              %>
+              <li class="nav-item">
+                <%=
+                  link_to_unless_current name, path, class: "nav-link active" do
+                    link_to name, path, class: "nav-link active fw-bold"
+                  end
+                %>
+              </li>
+              <% end %>
+            </ul>
+            <ul class="navbar-nav">
+              <% if @current_user %>
+                <li class="nav-item">
+                  <%= link_to @current_user.email, user_path(@current_user), class: "nav-link" %>
+                </li>
+              <% else %>
+                <%= link_to "Not logged in", "/", class: "nav-link" %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
