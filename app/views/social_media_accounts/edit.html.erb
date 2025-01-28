@@ -1,0 +1,12 @@
+<% content_for :title, "Editing social media account" %>
+
+<h1>Editing social media account</h1>
+
+<%= render "form", social_media_account: @social_media_account %>
+
+<br>
+
+<div>
+  <%= link_to "Show this social media account", @social_media_account %> |
+  <%= link_to "Back to social media accounts", social_media_accounts_path %>
+</div>
