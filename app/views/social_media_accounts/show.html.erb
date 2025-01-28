@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @social_media_account %>
+
+<div>
+  <%= link_to "Edit this social media account", edit_social_media_account_path(@social_media_account) %> |
+  <%= link_to "Back to social media accounts", social_media_accounts_path %>
+
+  <%= button_to "Destroy this social media account", @social_media_account, method: :delete %>
+</div>
