@@ -81,9 +81,8 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: anseo_anois_production
-    username: anseo_anois
-    password: <%= ENV["ANSEO_ANOIS_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: anseo_anois_production_cache
