@@ -1,0 +1,7 @@
+<%= bootstrap_fields_for @account || Account.new(accountable: BlueskyAccount.new) do |f| %>
+    <%= f.fields_for :accountable do |ff| %>
+        <div>
+            <%= ff.text_field :handle, label: "Bluesky handle" %>
+        </div>
+    <% end %>
+<% end %>

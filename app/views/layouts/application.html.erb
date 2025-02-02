@@ -32,21 +32,9 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <%
-                {
-                  "Home": "/",
-                  "Register": "/users/new",
-                  "Social Media Accounts": "/social_media_accounts",
-                }.map do |name, path|
-              %>
-              <li class="nav-item">
-                <%=
-                  link_to_unless_current name, path, class: "nav-link active" do
-                    link_to name, path, class: "nav-link active fw-bold"
-                  end
-                %>
-              </li>
-              <% end %>
+              <%= render "navbar_item", name: "Home", path: "/"%>
+              <% if !@current_user %> <%= render "navbar_item", name: "Register", path: "/users/new"%> <% end %>
+              <% if @current_user %> <%= render "navbar_item", name: "Accounts", path: "/accounts"%> <% end %>
             </ul>
             <ul class="navbar-nav">
               <% if @current_user %>

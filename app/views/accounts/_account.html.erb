@@ -1,0 +1,22 @@
+<div id="<%= dom_id account %>">
+   <%= render account.accountable %>
+
+  <p>
+    <strong>Publicly visible:</strong>
+    <%= account.publicly_visible %>
+  </p>
+
+  <p>
+    <strong>Replaced:</strong>
+    <% account.replaced.each do |acc| %>
+      <%= link_to acc.menu_name, acc, class: "badge text-bg-warning" %>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Replacements:</strong>
+    <% account.replacements.each do |acc| %>
+      <%= link_to acc.menu_name, acc, class: "badge text-bg-success" %>
+    <% end %>
+  </p>
+</div>

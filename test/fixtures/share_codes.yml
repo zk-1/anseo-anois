@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  active: false
+  creator_id: 1
+  share_code_protectable_id: 1
+  share_code_protectable_type: MyString
+
+two:
+  code: MyString
+  active: false
+  creator_id: 1
+  share_code_protectable_id: 1
+  share_code_protectable_type: MyString

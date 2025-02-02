@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_28_181200) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_01_200747) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "account_replacements", force: :cascade do |t|
+    t.integer "replaced_id"
+    t.integer "replacement_id"
+    t.integer "creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "accounts", force: :cascade do |t|
+    t.boolean "publicly_visible"
+    t.integer "owner_id"
+    t.integer "accountable_id"
+    t.string "accountable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bluesky_accounts", force: :cascade do |t|
+    t.string "handle"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instagram_accounts", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -23,15 +52,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_28_181200) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
-  create_table "social_media_accounts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "old_platform"
-    t.string "old_account"
-    t.string "new_platform"
-    t.string "new_account"
+  create_table "share_codes", force: :cascade do |t|
+    t.string "code"
+    t.boolean "active"
+    t.integer "creator_id"
+    t.integer "share_code_protectable_id"
+    t.string "share_code_protectable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_social_media_accounts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

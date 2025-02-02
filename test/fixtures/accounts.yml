@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publicly_visible: false
+  owner_id: 1
+  accountable_id: 1
+  accountable_type: MyString
+
+two:
+  publicly_visible: false
+  owner_id: 1
+  accountable_id: 1
+  accountable_type: MyString
