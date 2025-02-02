@@ -39,11 +39,11 @@
     <br>
 
   <div>
-    <%= form.collection_select :replaced_ids, @current_user.accounts.excluding(account), :id, :menu_name, {:multiple => true} %>
+    <%= form.collection_select :replaced_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "Replaced", multiple: true} %>
   </div>
 
   <div>
-    <%= form.collection_select :replacement_ids, @current_user.accounts.excluding(account), :id, :menu_name, {:multiple => true} %>
+    <%= form.collection_select :replacement_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "Replacements",multiple: true} %>
   </div>
   
   <div>
