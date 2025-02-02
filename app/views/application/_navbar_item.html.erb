@@ -1,0 +1,7 @@
+<li class="nav-item">
+    <%=
+        link_to_unless_current name, path, class: "nav-link active" do
+        link_to name, path, class: "nav-link active fw-bold"
+        end
+    %>
+</li>

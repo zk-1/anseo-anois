@@ -1,0 +1,52 @@
+<%= bootstrap_form_with(model: account) do |form| %>
+  <% if account.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+        <% account.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :publicly_visible, style: "display: block" %>
+    <%= form.checkbox :publicly_visible %>
+  </div>
+
+  <% if !account.accountable.present? %>
+    <div data-controller="account">
+      <div>
+        <%= form.select :accountable_type,
+          options_for_select(Account::DELEGATED_TYPES.map { |klass| [klass.platform_name, klass.name] }),
+          {prompt: 'Select a platform', label: 'Platform'},
+          {data: {action: "change->account#change"}}
+        %>
+      </div>
+      <%= turbo_frame_tag 'form_fields' %>
+  <% else %>
+    <br>
+    <div>
+      <%= form.label :accountable_type, 'Platform' %>
+      <p>
+        <i><%= account.accountable.class.platform_name %></i>
+      </p>
+    </div>
+    <%= render partial: "#{account.accountable.class.name.underscore.pluralize}/form_fields", account: account %>
+  <% end %>
+    <br>
+
+  <div>
+    <%= form.collection_select :replaced_ids, @current_user.accounts.excluding(account), :id, :menu_name, {:multiple => true} %>
+  </div>
+
+  <div>
+    <%= form.collection_select :replacement_ids, @current_user.accounts.excluding(account), :id, :menu_name, {:multiple => true} %>
+  </div>
+  
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
