@@ -12,7 +12,7 @@
      data-client_id="<%= ENV["GOOGLE_SIGN_IN_CLIENT_ID"] %>"
      data-context="signup"
      data-ux_mode="popup"
-     data-login_uri="https://localhost:3001/users/google_sign_in"
+     data-login_uri="https://<%= ENV["SITE_DOMAIN"] %>/users/google_sign_in"
      data-authenticity_token="<%= form_authenticity_token %>"
      data-auto_select="true"
      data-itp_support="true"

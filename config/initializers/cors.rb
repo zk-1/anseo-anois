@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://localhost:3001", "https://#{ENV["ANSEO_ANOIS_DOMAIN"]}"
+    origins "https://#{ENV["SITE_DOMAIN"]}"
     resource "*",
       headers: :any,
       expose: [ "Authorization" ],
