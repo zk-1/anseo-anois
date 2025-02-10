@@ -6,6 +6,10 @@ class ShareCode < ApplicationRecord
 
   attribute :active, :boolean, default: true
 
+  def protectable_url
+    "https://#{ENV["SITE_DOMAIN"]}/?sc=#{code}"
+  end
+
   private
 
   def generate_code

@@ -1,0 +1,30 @@
+<div class="row border rounded-3 p-2 my-1">
+    <div class="col-md-3">
+        <strong>Share code</strong>
+        <br>
+        <%= share_code.code %>
+    </div>
+    <div class="col-md-2">
+        <strong>Created</strong>
+        <br>
+        <%= share_code.created_at.strftime("%d/%m/%Y, %H:%M") %>
+    </div>
+    <div class="col-md-2">
+        <strong>Expires</strong>
+        <br>
+        <%= share_code.expires_at&.strftime("%d/%m/%Y, %H:%M") || "Never" %>
+    </div>
+    <div class="col-md-1">
+        <strong>Hits</strong>
+        <br>
+        <%= share_code.hits %>
+    </div>
+    <div class="col-md-3 align-self-center offset-md-1 text-end" data-controller="sharelink" data-sharelink-share-url-value="<%= share_code.protectable_url %>">
+        <button
+            class="btn btn-success"
+            data-action="click->sharelink#copy"
+            data-sharelink-target="button">Share</button>
+        <%= link_to "View", share_code.protectable_url, class: "btn btn-primary" %>
+        <%= button_to "Delete", share_code, method: :delete, class: "btn btn-danger" %>
+    </div>
+</div>

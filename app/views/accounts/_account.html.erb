@@ -1,22 +1,30 @@
 <div id="<%= dom_id account %>">
-   <%= render account.accountable %>
+  <% if @sharable_view %>
+    <div class="container text-center my-3">
+      <%= link_to "/", class: "text-decoration-none text-dark" do %>
+        <h1 class="princess-sofia-regular">Anseo Anois</h2>
+      <% end %>
+    </div>
+  <% end %>
 
-  <p>
-    <strong>Publicly visible:</strong>
-    <%= account.publicly_visible %>
-  </p>
+  <% unless @sharable_view %>
+    <h2><%= account.menu_name %></h2>
+  <% end %>
 
-  <p>
-    <strong>Replaced:</strong>
-    <% account.replaced.each do |acc| %>
-      <%= link_to acc.menu_name, acc, class: "badge text-bg-warning" %>
-    <% end %>
-  </p>
+  <%= render partial: "accounts/card_presentation", locals: { account: } %>
 
-  <p>
-    <strong>Replacements:</strong>
-    <% account.replacements.each do |acc| %>
-      <%= link_to acc.menu_name, acc, class: "badge text-bg-success" %>
-    <% end %>
-  </p>
+  <% if account.owner == @current_user && !@sharable_view %>
+    <br>
+    <%= render partial: "accounts/share_codes", locals: { account: } %>
+    <br>
+    <%= render partial: "accounts/owner_details", locals: { account: } %>
+  <% end %>
+
+  <% if @sharable_view %>
+    <div class="container mt-2">
+      <div class="row text-center">
+        <p class="text-muted"><small>Anseo Anois is a Link-as-a-Service (LaaS) platform. <%= link_to "Add your accounts today!", new_account_path, class: "footer-link" %></small></p>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: %i[ show edit update destroy ]
-  before_action :insist_on_registered_user, except: %i[ show ]
+  before_action :insist_on_registered_user
+
   # GET /accounts or /accounts.json
   def index
     @accounts = current_user.accounts

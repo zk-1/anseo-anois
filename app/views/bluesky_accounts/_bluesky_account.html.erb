@@ -1,10 +1,13 @@
-<div id="<%= dom_id bluesky_account %>">
-    <p>
-        <strong>Platform:</strong>
-        <%= bluesky_account.class.platform_name %>
-    </p>
-    <p>
-        <strong>Handle:</strong>
-        <%= bluesky_account.handle %>
-    </p>
+<div id="<%= dom_id bluesky_account %>"> 
+    <%= link_to bluesky_account.url, class: "account-card-anchor" do %>
+        <div class="account-card bluesky-card">
+            <h4><%= bluesky_account.platform_name %></h4>
+            <div class="platform-logo">
+                <%= image_tag "platform_logos/bluesky.png", class: "img-fluid account-card-logo" %>
+            </div>
+            <div class="platform-badge bluesky-badge">
+                <%= "@#{bluesky_account.account_name}.bsky.social" %>
+            </div>
+        </div>
+    <% end %>
 </div>

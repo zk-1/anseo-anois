@@ -1,0 +1,21 @@
+<div class="container border border-2 rounded-3 p-4">
+    <h5>Account details</h3>
+    <p>
+      <strong>This account:</strong>
+      <%= link_to account.menu_name, account, class: "badge text-bg-secondary" %>
+    </p>
+
+    <p>
+      <strong>Replaced:</strong>
+      <% account.replaced.each do |acc| %>
+        <%= link_to acc.menu_name, acc, class: "badge text-bg-warning" %>
+      <% end %>
+    </p>
+
+    <p>
+    <strong>Replacements:</strong>
+    <% account.replacements.each do |acc| %>
+      <%= link_to acc.menu_name, acc, class: "badge text-bg-success" %>
+    <% end %>
+    </p>
+</div>

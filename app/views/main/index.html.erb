@@ -1,0 +1,21 @@
+<% if notice %><p class="notice alert alert-primary p-2 my-3"><%= notice %></p><% end %>
+
+<div class="container mt-5 p-3 rounded-3 header-box home-header-box">
+  <div class="row justify-content-center">
+    <div class="col-auto text-center">
+      <h1>Anseo Anois</h1>
+      <p><i>Here Now | Ici Maintenant | Aquí Ahora</i></p>
+      <p>
+        A link-as-a-service (LaaS) provider for internet account changes!
+      </p>
+      <p>
+        <% if @current_user %>
+          <%= link_to "View accounts", accounts_path, class: "btn btn-secondary fw-semibold" %>
+          <%= link_to "Add account", new_account_path, class: "btn btn-warning fw-semibold" %>
+        <% else %>
+          <%= link_to "Login/Register", new_user_path, class: "btn btn-warning fw-semibold" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

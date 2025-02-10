@@ -11,5 +11,13 @@ class Account < ApplicationRecord
   has_many :replaced, through: :replaced_records, source: :replaced
   has_many :share_codes, as: :share_code_protectable, dependent: :destroy
 
-  delegate :platform_name, :menu_name, to: :accountable, allow_nil: true
+  delegate :platform_name, :menu_name, :account_name, :url, to: :accountable, allow_nil: true
+
+  def solo?
+    replacements.none? && replaced.none?
+  end
+
+  def url
+    accountable.url
+  end
 end

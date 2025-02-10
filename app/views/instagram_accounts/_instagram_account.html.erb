@@ -1,10 +1,13 @@
-<div id="<%= dom_id instagram_account %>">
-    <p>
-        <strong>Platform:</strong>
-        <%= instagram_account.class.platform_name %>
-    </p>
-    <p>
-        <strong>Username:</strong>
-        <%= instagram_account.username %>
-    </p>
+<div id="<%= dom_id instagram_account %>"> 
+    <%= link_to instagram_account.url, class: "account-card-anchor" do %>
+        <div class="account-card instagram-card">
+            <h4><%= instagram_account.platform_name %></h4>
+            <div class="platform-logo">
+                <%= image_tag "platform_logos/instagram.png", class: "img-fluid account-card-logo" %>
+            </div>
+            <div class="platform-badge instagram-badge">
+                <%= "@#{instagram_account.account_name}" %>
+            </div>
+        </div>
+    <% end %>
 </div>

@@ -11,11 +11,6 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :publicly_visible, style: "display: block" %>
-    <%= form.checkbox :publicly_visible %>
-  </div>
-
   <% if !account.accountable.present? %>
     <div data-controller="account">
       <div>
@@ -39,11 +34,11 @@
     <br>
 
   <div>
-    <%= form.collection_select :replaced_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "Replaced", multiple: true} %>
+    <%= form.collection_select :replaced_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "This account has replaced:", multiple: true} %>
   </div>
 
   <div>
-    <%= form.collection_select :replacement_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "Replacements",multiple: true} %>
+    <%= form.collection_select :replacement_ids, @current_user.accounts.excluding(account), :id, :menu_name, {label: "The replacements for this account are:",multiple: true} %>
   </div>
   
   <div>
