@@ -7,7 +7,19 @@ class BlueskyAccount < ApplicationRecord
     end
   end
 
+  def platform_name
+    self.class.platform_name
+  end
+
   def menu_name
-    "Bluesky: #{handle}"
+    "Bluesky: @#{handle}.bsky.social"
+  end
+
+  def account_name
+    handle
+  end
+
+  def url
+    "https://bsky.app/profile/#{handle}"
   end
 end

@@ -6,3 +6,4 @@
 //= link controllers/hello_controller.js
 //= link controllers/index.js
 //= link controllers/account_controller.js
+//= link controllers/sharelink_controller.js

@@ -10,15 +10,19 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "welcome#index"
+  root "main#index"
 
   resources :accounts
   resource :session
-  resources "users"
+  resources :users do
+    post :google_sign_in, on: :collection
+    delete :logout
+  end
   resources :instagram_accounts, only: [] do
     get :form_fields, on: :collection
   end
   resources :bluesky_accounts, only: [] do
     get :form_fields, on: :collection
   end
+  resources :share_codes, only: [ :new, :create, :destroy, :show ]
 end

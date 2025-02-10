@@ -46,6 +46,9 @@ gem "bootstrap"
 gem "bootstrap_form"
 gem "sassc-rails"
 gem "requestjs-rails"
+gem "googleauth"
+gem "google_sign_in"
+gem "rack-cors"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

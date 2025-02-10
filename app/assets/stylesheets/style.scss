@@ -1,0 +1,138 @@
+input[type=text], textarea {
+    width: 100%;
+}
+
+#nav-bar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+form {
+    display: inline;
+}
+
+.moved-to-image-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.moved-to-image {
+    max-height: 100px;
+    opacity: 0.8;
+}
+
+.accounts-container {
+    border: 3px solid;
+    border-radius: 15px;
+    padding: 6px;
+    margin: 0 4px;
+    display: inline-block;
+}
+
+.solo-account {
+    border: none;
+}
+
+.replaced-accounts {
+    opacity: 65%;
+    border-color: #ffbaba;
+}
+
+.replacement-accounts {
+    border-color: #baf2ba;
+}
+
+.current-replaced-account {
+    border-color: #f2eeba;
+    opacity: 65%;
+}
+
+.account-card-anchor {
+    text-decoration: none;
+    color: #000;
+}
+
+.account-card {
+    --background-opacity: 0.4;
+    border: 3px solid #7d7d7d33;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 12px;
+    padding-bottom: 16px;
+    text-align: center;
+    max-width: 240px;
+    max-height: 300px;
+}
+
+.account-card:hover {
+    background-color: rgb(230, 230, 230);
+    border: 1px solid #eceff133;
+}
+
+.instagram-card {
+    background: rgb(131,58,180);
+    background: linear-gradient(329deg, rgba(131,58,180,var(--background-opacity)) 0%, rgba(253,29,29,var(--background-opacity)) 50%, rgba(252,176,69,var(--background-opacity)) 100%);
+}
+
+.bluesky-card {
+    background: rgb(0,0,255);
+    background: linear-gradient(158deg, rgba(0,0,255,var(--background-opacity)) 0%, rgba(43,148,255,var(--background-opacity)) 52%, rgba(77,174,255,var(--background-opacity)) 100%);
+}
+
+.account-card h4 {
+    padding-bottom: 6px;
+
+}
+
+.account-card-logo {
+    width: 70%;
+}
+
+.platform-badge {
+    text-decoration: none;
+    color: rgb(53, 53, 53);
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0px .125rem .25rem rgb(135, 135, 135);
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.3rem;
+    justify-content: center;
+    vertical-align: middle;   
+  }
+
+.instagram-badge {
+    background-color: rgb(234, 189, 189);
+}
+
+.bluesky-badge {
+    background-color: rgb(185, 207, 233);
+}
+
+.header-box {
+    background-color: rgb(222, 220, 220);
+}
+
+.home-header-box {
+    max-width: 600px;
+}
+
+.share-codes-container {
+    width: fit-content;
+}
+
+.princess-sofia-regular {
+    font-family: "Princess Sofia", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer-link {
+    color: #646464;
+}

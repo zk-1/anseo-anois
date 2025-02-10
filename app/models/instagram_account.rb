@@ -7,7 +7,19 @@ class InstagramAccount < ApplicationRecord
     end
   end
 
+  def platform_name
+    self.class.platform_name
+  end
+
   def menu_name
-    "Instagram: #{username}"
+    "Instagram: @#{username}"
+  end
+
+  def account_name
+    username
+  end
+
+  def url
+    "https://www.instagram.com/#{username}"
   end
 end

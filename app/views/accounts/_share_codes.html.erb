@@ -1,0 +1,14 @@
+<div class="container border border-2 rounded-3 p-4">
+    <h5>Share codes</h3>
+    <div class="container share-codes-container">
+        <div id="<%= dom_id(account, :share_codes) %>">
+            <% account.share_codes.sort_by(&:hits).reverse.each do |share_code| %>
+                <%= render "share_codes/share_code", share_code: %>
+            <% end %>
+        </div>
+        <br>
+    </div>
+    <%= turbo_frame_tag "new_share_code" do %>
+        <%= link_to "New share code", new_share_code_path(share_code_protectable_id: account.id, share_code_protectable_type: account.class.name), class: "btn btn-success" %>
+    <% end %>
+</div>

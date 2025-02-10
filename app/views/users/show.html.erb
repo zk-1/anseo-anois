@@ -1,3 +1,5 @@
 <% if notice %><p class="notice alert alert-primary p-2"><%= notice %></p><% end %>
 
 <%= render @user %>
+
+<%= button_to "Logout", user_logout_path(@user), method: :delete, class: "btn btn-danger", turbo: false %>

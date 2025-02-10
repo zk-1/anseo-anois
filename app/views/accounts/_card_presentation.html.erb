@@ -1,0 +1,29 @@
+<div class="container border border-2 rounded-3 p-4">
+    <div class="row m-0 d-flex justify-content-center">
+        <% if account.replaced.any? %>
+        <div class="col-auto accounts-container replaced-accounts">
+            <% account.replaced.each do |acc| %>
+            <%= render acc.accountable, role: :replaced %>
+            <% end %>
+        </div>
+        <%= render partial: "accounts/moved_to" %>
+        <% end %>
+        <% if account.solo? %>
+        <div class="col-auto accounts-container solo-account">
+            <%= render account.accountable, role: :current %>
+        </div>
+        <% else %>
+            <div class="col-auto accounts-container <%= account.replacements.any? ? "current-replaced-account" : "replacement-accounts" %>">
+                <%= render account.accountable, role: :current %>
+            </div>
+        <% end %>
+        <% if account.replacements.any? %>
+        <%= render partial: "accounts/moved_to" if account.replacements.any? %>
+        <div class="col-auto accounts-container replacement-accounts">
+            <% account.replacements.each do |acc| %>
+            <%= render acc.accountable, role: :replacement %>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+</div>
